@@ -1,0 +1,191 @@
+/* Responsive Styles */
+
+@media (max-width: 1200px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .office-locations {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    font-size: 9px; /* Slightly reduce base font size */
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .procrastinators-content {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .procrastinators-image {
+    margin-left: 0;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cta .container {
+    flex-direction: column;
+  }
+
+  .cta-content {
+    text-align: center;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.8rem;
+  }
+
+  .nav-links,
+  .auth-buttons {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .mobile-menu.show {
+    display: block;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .statistics-grid {
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 2.4rem;
+    text-align: center;
+  }
+
+  .social-proof-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 logos in mobile */
+    gap: 3.2rem;
+  }
+
+  .social-proof-logo {
+    height: 3.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 3.6rem;
+  }
+
+  .hero-description {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    padding: 0;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .separatorInMobil {
+    display: block;
+  }
+
+  .load-more {
+    font-family: "Plus Jakarta Sans";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.3rem 0.8rem;
+    background-color: var(--primary);
+    border-radius: var(--radius);
+    color: white;
+    border: none;
+  }
+
+  .cta {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .cta .container {
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .cta .cta-content {
+    text-align: left;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-buttons .btn-outline {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .cta-image {
+    display: none;
+  }
+
+  .cta-image-mobile {
+    display: block;
+  }
+
+  .cta-content {
+    padding-bottom: 0;
+  }
+
+  .app-buttons {
+    /* flex-direction: column; */
+    align-items: center;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  .office-locations {
+    grid-template-columns: 1fr;
+  }
+
+  .social-proof-grid {
+    display: grid;
+    grid-column: 3;
+    gap: 3.2rem;
+  }
+
+  .social-proof-logo {
+    width: 100%;
+  }
+}
