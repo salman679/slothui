@@ -6,6 +6,7 @@
     <title>Slothui - Unleash Your Inner Design Sloth Today</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/animation.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +23,6 @@
         <div class="logo">
           <a href="/">
             <img src="assets/image/Logo.png" alt="Slothui Logo" />
-            <!-- <span>slothui</span> -->
           </a>
         </div>
         <div class="nav-links">
@@ -88,41 +88,8 @@
     <!-- Social Proof Section -->
     <section class="social-proof">
       <div class="container">
-        <div class="social-proof-grid">
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/delta.svg" alt="Delta" />
-          </div>
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/boeing.svg" alt="Boeing" />
-          </div>
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/boeing.svg" alt="Boeing" />
-          </div>
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/spacex.svg" alt="SpaceX" />
-          </div>
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/ibm.svg" alt="IBM" />
-          </div>
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/walmart.svg" alt="Walmart" />
-          </div>
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/uber.svg" alt="Uber" />
-          </div>
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/google.svg" alt="Google" />
-          </div>
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/samsung.svg" alt="Samsung" />
-          </div>
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/pepsi.svg" alt="Pepsi" />
-          </div>
-          <div class="social-proof-logo">
-            <img src="assets/image/logos/adidas.svg" alt="Adidas" />
-          </div>
-        </div>
+        <div class="social-proof-row" id="row1"></div>
+        <div class="social-proof-row" id="row2"></div>
       </div>
     </section>
 
@@ -216,7 +183,7 @@
     </section>
 
     <!-- Statistics Section -->
-    <section class="statistics">
+    <section class="statistics" id="statisticsSection">
       <div class="container">
         <div class="statistics-icon">
           <img src="assets/image/icons/HouseSimple.svg" alt="HouseSimple" />
@@ -231,7 +198,7 @@
         <div class="statistics-grid">
           <!-- Stat 1 -->
           <div class="statistic-item">
-            <h3>420%</h3>
+            <h3 data-target="420" data-format="%">0</h3>
             <p>Data Efficiency</p>
           </div>
 
@@ -259,7 +226,7 @@
 
           <!-- Stat 2 -->
           <div class="statistic-item">
-            <h3>708+</h3>
+            <h3 data-target="708" data-format="+">0</h3>
             <p>Conversion Rate</p>
           </div>
 
@@ -287,7 +254,7 @@
 
           <!-- Stat 3 -->
           <div class="statistic-item">
-            <h3>1.82M</h3>
+            <h3 data-target="1.82" data-format="M">0</h3>
             <p>AI LLM Scale</p>
           </div>
         </div>
@@ -1296,5 +1263,6 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/animation.js"></script>
   </body>
 </html>

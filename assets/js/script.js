@@ -77,61 +77,61 @@ window.addEventListener("scroll", () => {
 });
 
 // Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    if (this.getAttribute("href") !== "#") {
-      e.preventDefault();
+// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+//   anchor.addEventListener("click", function (e) {
+//     if (this.getAttribute("href") !== "#") {
+//       e.preventDefault();
 
-      const targetId = this.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
+//       const targetId = this.getAttribute("href");
+//       const targetElement = document.querySelector(targetId);
 
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80, // Offset for fixed header
-          behavior: "smooth",
-        });
-      }
-    }
-  });
-});
+//       if (targetElement) {
+//         window.scrollTo({
+//           top: targetElement.offsetTop - 80,
+//           behavior: "smooth",
+//         });
+//       }
+//     }
+//   });
+// });
 
-// Add animation on scroll
-const animateOnScroll = () => {
-  const elements = document.querySelectorAll(
-    ".feature-card, .procrastinator-item, .testimonial-card, .statistic-item, .office-card"
-  );
+// // Add animation on scroll
+// const animateOnScroll = () => {
+//   const elements = document.querySelectorAll(
+//     ".feature-card, .procrastinator-item, .testimonial-card, .statistic-item, .office-card"
+//   );
 
-  elements.forEach((element) => {
-    const elementPosition = element.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight / 1.2;
+//   elements.forEach((element) => {
+//     const elementPosition = element.getBoundingClientRect().top;
+//     const screenPosition = window.innerHeight / 1.2;
 
-    if (elementPosition < screenPosition) {
-      element.style.opacity = "1";
-      element.style.transform = "translateY(0)";
-    }
-  });
-};
+//     if (elementPosition < screenPosition) {
+//       element.style.opacity = "1";
+//       element.style.transform = "translateY(0)";
+//     }
+//   });
+// };
 
-// Initialize animations
-window.addEventListener("load", () => {
-  // Set initial state for animated elements
-  const elements = document.querySelectorAll(
-    ".feature-card, .procrastinator-item, .testimonial-card, .statistic-item, .office-card"
-  );
-  elements.forEach((element) => {
-    element.style.opacity = "0";
-    element.style.transform = "translateY(20px)";
-    element.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-  });
+// // Initialize animations
+// window.addEventListener("scroll", () => {
+//   // Set initial state for animated elements
+//   const elements = document.querySelectorAll(
+//     ".feature-card, .procrastinator-item, .testimonial-card, .statistic-item, .office-card"
+//   );
+//   elements.forEach((element) => {
+//     element.style.opacity = "0";
+//     element.style.transform = "translateY(20px)";
+//     element.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+//   });
 
-  // Trigger initial animation
-  setTimeout(animateOnScroll, 300);
-});
+//   // Trigger initial animation
+//   setTimeout(animateOnScroll, 300);
+// });
 
-window.addEventListener("scroll", animateOnScroll);
+// window.addEventListener("scroll", animateOnScroll);
 
-//load more button
-document.addEventListener("DOMContentLoaded", function () {
+// //load more button
+document.addEventListener("scroll", function () {
   const testimonials = document.querySelectorAll(
     "#testimonials .testimonial-card"
   );
@@ -167,4 +167,65 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     loadMoreBtn.style.display = "none";
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const section = document.getElementById("statisticsSection");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounters(); // Trigger when entering view
+        }
+      });
+    },
+    {
+      threshold: 0.5, // Triggers when 50% of section is visible
+    }
+  );
+
+  observer.observe(section);
+
+  function animateCounters() {
+    const counters = document.querySelectorAll(
+      "#statisticsSection .statistic-item h3"
+    );
+
+    counters.forEach((counter) => {
+      const target = parseFloat(counter.getAttribute("data-target"));
+      const format = counter.getAttribute("data-format");
+      let current = 0;
+      const speed = 100;
+
+      // Reset content to 0 before each animation
+      counter.textContent = format === "M" ? "0.00M" : "0";
+
+      const updateCount = () => {
+        const increment = target / speed;
+
+        if (current < target) {
+          current += increment;
+          counter.textContent = formatNumber(current, format);
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.textContent = formatNumber(target, format);
+        }
+      };
+
+      updateCount();
+    });
+  }
+
+  function formatNumber(number, format) {
+    if (format === "M") {
+      return number.toFixed(2) + "M";
+    } else if (format === "%") {
+      return Math.ceil(number) + "%";
+    } else if (format === "+") {
+      return Math.ceil(number) + "+";
+    } else {
+      return Math.ceil(number);
+    }
+  }
 });
