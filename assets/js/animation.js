@@ -1,13 +1,3 @@
-// Check if element is in viewport
-function isInViewport(element) {
-  const rect = element.getBoundingClientRect();
-  return (
-    rect.top <=
-      (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-    rect.bottom >= 0
-  );
-}
-
 // Procrastinator section interactive behavior
 function setupProcrastinatorInteraction() {
   const procrastinatorItems = document.querySelectorAll(".procrastinator-item");
@@ -44,21 +34,7 @@ function setupProcrastinatorInteraction() {
   });
 }
 
-// Animate elements when they come into view
-function animateOnScroll() {
-  // Elements to animate on scroll
-  const elements = document.querySelectorAll(
-    ".feature-card, .procrastinator-item, .office-card, .testimonial-card"
-  );
-  elements.forEach((element) => {
-    if (isInViewport(element) && !element.classList.contains("animated")) {
-      element.classList.add("animated");
-      element.style.opacity = "1";
-      element.style.transform = "translateY(0)";
-    }
-  });
-}
-
+// Logo marquee
 const logosRow1 = [
   "delta.svg",
   "boeing.png",
@@ -102,30 +78,6 @@ createMarquee("row2", logosRow2, "right");
 
 // Initialize all animations
 document.addEventListener("DOMContentLoaded", function () {
-  // Set initial state for animated elements
-  const animatedElements = document.querySelectorAll(
-    ".feature-card, .office-card, .testimonial-card"
-  );
-  animatedElements.forEach((element) => {
-    element.style.opacity = "0";
-    element.style.transform = "translateY(20px)";
-    element.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-  });
-
   // Setup procrastinator section interaction
   setupProcrastinatorInteraction();
-
-  // Initial animation check
-  animateOnScroll();
-
-  // Listen for scroll events with throttling for better performance
-  let scrollTimeout;
-  window.addEventListener("scroll", function () {
-    if (!scrollTimeout) {
-      scrollTimeout = setTimeout(function () {
-        animateOnScroll();
-        scrollTimeout = null;
-      }, 0);
-    }
-  });
 });

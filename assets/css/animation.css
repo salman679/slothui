@@ -159,38 +159,42 @@
 }
 
 /* Apply animations to specific elements */
-.hero h1 {
+.hero h1,
+.hero-description,
+.app-buttons,
+.hero-image,
+.badge,
+section h2,
+.section-description {
   opacity: 0;
+}
+
+/* Add animated versions */
+.hero h1.animated {
   animation: zoomIn 1.2s ease forwards;
 }
 
-.hero-description {
-  opacity: 0;
+.hero-description.animated {
   animation: fadeIn 1.2s ease 0.3s forwards;
 }
 
-.app-buttons {
-  opacity: 0;
+.app-buttons.animated {
   animation: fadeIn 1.2s ease 0.6s forwards;
 }
 
-.hero-image {
-  opacity: 0;
+.hero-image.animated {
   animation: zoomOut 1.2s ease 0.9s forwards;
 }
 
-.badge {
-  opacity: 0;
+.badge.animated {
   animation: fadeIn 1s ease forwards;
 }
 
-section h2 {
-  opacity: 0;
+section h2.animated {
   animation: zoomIn 1s ease forwards;
 }
 
-.section-description {
-  opacity: 0;
+.section-description.animated {
   animation: fadeIn 1s ease 0.3s forwards;
 }
 
@@ -236,6 +240,7 @@ section h2 {
 
 /* Procrastinator image transition */
 .procrastinators-image img {
+  border-radius: 16px;
   transition: opacity 0.3s ease;
 }
 
