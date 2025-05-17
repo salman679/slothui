@@ -297,3 +297,166 @@ section h2.animated {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* FAQ Section Animations */
+
+/* FAQ Item hover effect */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.3s ease;
+}
+
+.faq-item:hover {
+  background-color: rgba(79, 70, 229, 0.03);
+}
+
+/* Question hover effect */
+.faq-question {
+  display: flex;
+  align-items: center;
+  padding: 2.4rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover h3 {
+  color: var(--primary);
+}
+
+/* Icon animations */
+.faq-icon {
+  margin-right: 1.6rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: scale(1.1);
+}
+
+.faq-item:hover .faq-icon svg path {
+  stroke: var(--primary);
+  transition: stroke 0.3s ease;
+}
+
+/* Question text animations */
+.faq-question h3 {
+  flex: 1;
+  margin-bottom: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  transition: color 0.3s ease;
+}
+
+/* Chevron animations */
+.faq-toggle {
+  margin-left: 1.6rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(180deg);
+}
+
+.chevron-down,
+.chevron-up {
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover .chevron-down path,
+.faq-item:hover .chevron-up path {
+  stroke: var(--primary);
+}
+
+/* Answer animations */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
+  padding: 0 0 0 4rem;
+}
+
+.faq-answer.show {
+  max-height: 500px; /* Adjust based on your content */
+  opacity: 1;
+  padding: 0 0 2.4rem 4rem;
+}
+
+/* Staggered animation for FAQ items on page load */
+.faq-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.faq-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.faq-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.faq-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.faq-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.faq-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation for active FAQ icon */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.faq-item.active .faq-icon {
+  animation: pulse 2s infinite;
+}
+
+/* Rotate animation for chevrons */
+@keyframes rotateDown {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateUp {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.faq-item.active .chevron-down {
+  animation: rotateDown 0.3s forwards;
+}
+
+.faq-item:not(.active) .chevron-up {
+  animation: rotateUp 0.3s forwards;
+}

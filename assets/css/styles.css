@@ -645,11 +645,11 @@ p {
 .cta {
   background-color: #eef2ff;
   overflow: hidden;
-  border-top-right-radius: 2.4rem;
-  border-bottom-right-radius: 2.4rem;
+  /* border-top-right-radius: 2.4rem;
+  border-bottom-right-radius: 2.4rem; */
 }
 
-.cta .container {
+.cta .cta-container {
   display: flex;
   align-items: center;
   gap: 6.4rem;
@@ -684,12 +684,13 @@ p {
 
 .cta-image {
   flex: 1;
-  /* position: absolute; */
+  margin-right: -50px;
   max-width: 100%;
-  border-radius: var(--radius-lg);
+  /* border-radius: var(--radius-lg); */
   overflow: hidden;
   padding-bottom: 0;
-  margin-bottom: 0;
+  font-size: 0;
+  line-height: 0;
 }
 
 .cta-image-mobile {

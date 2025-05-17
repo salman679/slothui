@@ -35,24 +35,96 @@ mobileMenuLinks.forEach((link) => {
 });
 
 // FAQ Accordion
-const faqItems = document.querySelectorAll(".faq-item");
+// const faqItems = document.querySelectorAll(".faq-item");
 
-faqItems.forEach((item) => {
-  const question = item.querySelector(".faq-question");
-  const answer = item.querySelector(".faq-answer");
+// faqItems.forEach((item) => {
+//   const question = item.querySelector(".faq-question");
+//   const answer = item.querySelector(".faq-answer");
 
-  question.addEventListener("click", () => {
-    // Close all other items
-    faqItems.forEach((otherItem) => {
-      if (otherItem !== item) {
-        otherItem.classList.remove("active");
-        otherItem.querySelector(".faq-answer").classList.remove("show");
+//   question.addEventListener("click", () => {
+//     // Close all other items
+//     faqItems.forEach((otherItem) => {
+//       if (otherItem !== item) {
+//         otherItem.classList.remove("active");
+//         otherItem.querySelector(".faq-answer").classList.remove("show");
+//       }
+//     });
+
+//     // Toggle current item
+//     item.classList.toggle("active");
+//     answer.classList.toggle("show");
+//   });
+// });
+
+// Enhanced FAQ Accordion with Animations
+document.addEventListener("DOMContentLoaded", function () {
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  // Initialize FAQ items
+  faqItems.forEach((item, index) => {
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+
+    // Set initial state
+    if (!item.classList.contains("active")) {
+      answer.style.maxHeight = "0";
+      answer.style.opacity = "0";
+    } else {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      answer.style.opacity = "1";
+    }
+
+    // Add click event
+    question.addEventListener("click", () => {
+      // Toggle active state
+      const isActive = item.classList.contains("active");
+
+      // Close all other items
+      faqItems.forEach((otherItem) => {
+        if (otherItem !== item && otherItem.classList.contains("active")) {
+          otherItem.classList.remove("active");
+          const otherAnswer = otherItem.querySelector(".faq-answer");
+          otherAnswer.classList.remove("show");
+          otherAnswer.style.maxHeight = "0";
+          otherAnswer.style.opacity = "0";
+        }
+      });
+
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add("active");
+        answer.classList.add("show");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        answer.style.opacity = "1";
+
+        // Add a subtle bounce effect to the icon
+        const icon = item.querySelector(".faq-icon");
+        icon.style.animation = "none";
+        setTimeout(() => {
+          icon.style.animation = "pulse 2s infinite";
+        }, 10);
+      } else {
+        item.classList.remove("active");
+        answer.classList.remove("show");
+        answer.style.maxHeight = "0";
+        answer.style.opacity = "0";
+      }
+    });
+  });
+
+  // Add hover effect for FAQ items
+  faqItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      if (!item.classList.contains("active")) {
+        item.style.backgroundColor = "rgba(79, 70, 229, 0.03)";
       }
     });
 
-    // Toggle current item
-    item.classList.toggle("active");
-    answer.classList.toggle("show");
+    item.addEventListener("mouseleave", () => {
+      if (!item.classList.contains("active")) {
+        item.style.backgroundColor = "";
+      }
+    });
   });
 });
 
@@ -75,60 +147,6 @@ window.addEventListener("scroll", () => {
     backToTopBtn.style.opacity = "0";
   }
 });
-
-// Smooth scrolling for navigation links
-// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-//   anchor.addEventListener("click", function (e) {
-//     if (this.getAttribute("href") !== "#") {
-//       e.preventDefault();
-
-//       const targetId = this.getAttribute("href");
-//       const targetElement = document.querySelector(targetId);
-
-//       if (targetElement) {
-//         window.scrollTo({
-//           top: targetElement.offsetTop - 80,
-//           behavior: "smooth",
-//         });
-//       }
-//     }
-//   });
-// });
-
-// // Add animation on scroll
-// const animateOnScroll = () => {
-//   const elements = document.querySelectorAll(
-//     ".feature-card, .procrastinator-item, .testimonial-card, .statistic-item, .office-card"
-//   );
-
-//   elements.forEach((element) => {
-//     const elementPosition = element.getBoundingClientRect().top;
-//     const screenPosition = window.innerHeight / 1.2;
-
-//     if (elementPosition < screenPosition) {
-//       element.style.opacity = "1";
-//       element.style.transform = "translateY(0)";
-//     }
-//   });
-// };
-
-// // Initialize animations
-// window.addEventListener("scroll", () => {
-//   // Set initial state for animated elements
-//   const elements = document.querySelectorAll(
-//     ".feature-card, .procrastinator-item, .testimonial-card, .statistic-item, .office-card"
-//   );
-//   elements.forEach((element) => {
-//     element.style.opacity = "0";
-//     element.style.transform = "translateY(20px)";
-//     element.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-//   });
-
-//   // Trigger initial animation
-//   setTimeout(animateOnScroll, 300);
-// });
-
-// window.addEventListener("scroll", animateOnScroll);
 
 // //load more button
 document.addEventListener("scroll", function () {
@@ -246,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     observer.observe(section);
