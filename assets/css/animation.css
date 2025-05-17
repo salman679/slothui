@@ -1,4 +1,8 @@
-/* Animation Keyframes */
+/* ===============================
+   🎞️ Animation Keyframes
+================================= */
+
+/* Fade Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -17,6 +21,7 @@
   }
 }
 
+/* Zoom Animations */
 @keyframes zoomIn {
   from {
     transform: scale(0.8);
@@ -39,6 +44,7 @@
   }
 }
 
+/* Slide Animations */
 @keyframes slideInRight {
   from {
     transform: translateX(-100%);
@@ -61,6 +67,7 @@
   }
 }
 
+/* Bounce and Pulse */
 @keyframes bounce {
   0%,
   20%,
@@ -89,6 +96,7 @@
   }
 }
 
+/* Scrolling Animations */
 @keyframes scrollLeft {
   0% {
     left: 100%;
@@ -107,40 +115,71 @@
   }
 }
 
-/* Animation Classes */
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chevron Rotation */
+@keyframes rotateDown {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateUp {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* ===============================
+   🎬 Animation Classes
+================================= */
+
 .fade-in {
   animation: fadeIn 1s ease forwards;
 }
-
 .fade-out {
   animation: fadeOut 1s ease forwards;
 }
-
 .zoom-in {
   animation: zoomIn 1s ease forwards;
 }
-
 .zoom-out {
   animation: zoomOut 1s ease forwards;
 }
-
 .slide-in-right {
   animation: slideInRight 1s ease forwards;
 }
-
 .slide-in-left {
   animation: slideInLeft 1s ease forwards;
 }
-
 .bounce {
   animation: bounce 2s ease infinite;
 }
-
 .pulse {
   animation: pulse 2s ease infinite;
 }
 
-/* Apply animations to specific elements */
+/* ===============================
+   ✨ Element-Specific Animations
+================================= */
+
+/* Hero Section */
 .hero h1,
 .hero-description,
 .app-buttons,
@@ -151,36 +190,29 @@ section h2,
   opacity: 0;
 }
 
-/* Add animated versions */
 .hero h1.animated {
   animation: zoomIn 1.2s ease forwards;
 }
-
 .hero-description.animated {
   animation: fadeIn 1.2s ease 0.3s forwards;
 }
-
 .app-buttons.animated {
   animation: fadeIn 1.2s ease 0.6s forwards;
 }
-
 .hero-image.animated {
   animation: zoomOut 1.2s ease 0.9s forwards;
 }
-
 .badge.animated {
   animation: fadeIn 1s ease forwards;
 }
-
 section h2.animated {
   animation: zoomIn 1s ease forwards;
 }
-
 .section-description.animated {
   animation: fadeIn 1s ease 0.3s forwards;
 }
 
-/* Logo scroll animations */
+/* Logo Scrolling */
 .social-proof-grid {
   position: relative;
   overflow: hidden;
@@ -189,18 +221,17 @@ section h2.animated {
 .logo-row {
   display: flex;
   align-items: center;
-  width: 200%; /* Double width to allow continuous scrolling */
+  width: 200%;
 }
 
 .logo-row-1 {
   animation: scrollRight 30s linear infinite;
 }
-
 .logo-row-2 {
   animation: scrollLeft 30s linear infinite;
 }
 
-/* Procrastinator section interactive styles */
+/* Procrastinator Items */
 .procrastinator-item {
   cursor: pointer;
   transition: all 0.3s ease;
@@ -215,18 +246,18 @@ section h2.animated {
   color: var(--primary);
 }
 
-/* Statistics counter animation */
+/* Statistics */
 .statistic-item h3 {
   display: inline-block;
 }
 
-/* Procrastinator image transition */
+/* Procrastinator Image */
 .procrastinators-image img {
   border-radius: 16px;
   transition: opacity 0.3s ease;
 }
 
-/* Office cards animation */
+/* Office Cards */
 .office-card {
   opacity: 0;
   transform: translateY(20px);
@@ -243,7 +274,7 @@ section h2.animated {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Feature cards enhanced animation */
+/* Feature Cards */
 .feature-card {
   opacity: 0;
   transform: translateY(20px);
@@ -267,111 +298,30 @@ section h2.animated {
   transform: scale(1.1);
 }
 
-/* Testimonial cards animation */
+/* Testimonials */
 .testimonial-card {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s ease;
 }
 
-.testimonial-card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+.testimonial-card.show,
 .testimonial-card.animated {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* FAQ Item hover effect */
+/* FAQ Section */
 .faq-item {
   border-bottom: 1px solid var(--border);
   transition: background-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
 }
 
 .faq-item:hover {
   background-color: rgba(79, 70, 229, 0.03);
-}
-
-/* Question hover effect */
-.faq-question {
-  display: flex;
-  align-items: center;
-  padding: 2.4rem 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.faq-question:hover h3 {
-  color: var(--primary);
-}
-
-/* Icon animations */
-.faq-icon {
-  margin-right: 1.6rem;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-icon {
-  transform: scale(1.1);
-}
-
-.faq-item:hover .faq-icon svg path {
-  stroke: var(--primary);
-  transition: stroke 0.3s ease;
-}
-
-/* Question text animations */
-.faq-question h3 {
-  flex: 1;
-  margin-bottom: 0;
-  font-size: 1.6rem;
-  font-weight: 800;
-  transition: color 0.3s ease;
-}
-
-/* Chevron animations */
-.faq-toggle {
-  margin-left: 1.6rem;
-  transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-toggle {
-  transform: rotate(180deg);
-}
-
-.chevron-down,
-.chevron-up {
-  transition: all 0.3s ease;
-}
-
-.faq-item:hover .chevron-down path,
-.faq-item:hover .chevron-up path {
-  stroke: var(--primary);
-}
-
-/* Answer animations */
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
-  padding: 0 0 0 4rem;
-}
-
-.faq-answer.show {
-  max-height: 500px;
-  opacity: 1;
-  padding: 0 0 2.4rem 4rem;
-}
-
-/* Staggered animation for FAQ items on page load */
-.faq-item {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s ease forwards;
 }
 
 .faq-item:nth-child(1) {
@@ -390,51 +340,49 @@ section h2.animated {
   animation-delay: 0.5s;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.faq-question {
+  display: flex;
+  align-items: center;
+  padding: 2.4rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Pulse animation for active FAQ icon */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+.faq-question:hover h3 {
+  color: var(--primary);
+}
+
+.faq-icon {
+  margin-right: 1.6rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
 }
 
 .faq-item.active .faq-icon {
+  transform: scale(1.1);
   animation: pulse 2s infinite;
 }
 
-/* Rotate animation for chevrons */
-@keyframes rotateDown {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(180deg);
-  }
+.faq-item:hover .faq-icon svg path {
+  stroke: var(--primary);
+  transition: stroke 0.3s ease;
 }
 
-@keyframes rotateUp {
-  from {
-    transform: rotate(180deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
+.faq-question h3 {
+  flex: 1;
+  margin-bottom: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  transition: color 0.3s ease;
+}
+
+.faq-toggle {
+  margin-left: 1.6rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(180deg);
 }
 
 .faq-item.active .chevron-down {
@@ -443,4 +391,28 @@ section h2.animated {
 
 .faq-item:not(.active) .chevron-up {
   animation: rotateUp 0.3s forwards;
+}
+
+.chevron-down,
+.chevron-up {
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover .chevron-down path,
+.faq-item:hover .chevron-up path {
+  stroke: var(--primary);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 0 0 4rem;
+  transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer.show {
+  max-height: 500px;
+  opacity: 1;
+  padding: 0 0 2.4rem 4rem;
 }
