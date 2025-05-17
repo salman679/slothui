@@ -139,6 +139,10 @@
     padding: 0 1.5rem;
   }
 
+  .cta .cta-container {
+    flex-direction: column;
+  }
+
   .cta .cta-content {
     text-align: left;
   }
