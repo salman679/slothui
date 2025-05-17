@@ -257,19 +257,28 @@ document.addEventListener("DOMContentLoaded", function () {
     "testimonials",
     ".testimonial-card, .badge, section h2, .section-description"
   );
+
   animateOnView(
     "features",
     ".feature-card, .badge, section h2, .section-description"
   );
+
   animateOnView(
     "contact",
     ".office-card, .badge, section h2, .section-description"
   );
+
   animateOnView(
     "statisticsSection",
     ".statistic-item, .badge, section h2, .section-description"
   );
+
   animateOnView("achievements", " .badge, section h2, .section-description");
+
+  animateOnView("faq", " .badge, section h2, .section-description");
+
+  animateOnView("cta", "section h2, .section-description");
+
   animateOnView(
     "hero",
     ".hero h1, .hero-description, .app-buttons, .hero-image, .badge"
