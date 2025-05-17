@@ -34,28 +34,6 @@ mobileMenuLinks.forEach((link) => {
   });
 });
 
-// FAQ Accordion
-// const faqItems = document.querySelectorAll(".faq-item");
-
-// faqItems.forEach((item) => {
-//   const question = item.querySelector(".faq-question");
-//   const answer = item.querySelector(".faq-answer");
-
-//   question.addEventListener("click", () => {
-//     // Close all other items
-//     faqItems.forEach((otherItem) => {
-//       if (otherItem !== item) {
-//         otherItem.classList.remove("active");
-//         otherItem.querySelector(".faq-answer").classList.remove("show");
-//       }
-//     });
-
-//     // Toggle current item
-//     item.classList.toggle("active");
-//     answer.classList.toggle("show");
-//   });
-// });
-
 // Enhanced FAQ Accordion with Animations
 document.addEventListener("DOMContentLoaded", function () {
   const faqItems = document.querySelectorAll(".faq-item");
