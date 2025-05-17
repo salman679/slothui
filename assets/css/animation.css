@@ -275,7 +275,6 @@ section h2.animated {
 
 .feature-card:hover {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
@@ -291,6 +290,11 @@ section h2.animated {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s ease;
+}
+
+.testimonial-card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .testimonial-card.animated {

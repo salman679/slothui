@@ -148,8 +148,8 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// //load more button
-document.addEventListener("scroll", function () {
+//load more button
+document.addEventListener("DOMContentLoaded", function () {
   const testimonials = document.querySelectorAll(
     "#testimonials .testimonial-card"
   );
@@ -180,8 +180,10 @@ document.addEventListener("scroll", function () {
   window.addEventListener("resize", handleMobileView);
 
   loadMoreBtn.addEventListener("click", function () {
-    testimonials.forEach((testimonial) => {
-      testimonial.classList.add("show");
+    testimonials.forEach((testimonial, index) => {
+      setTimeout(() => {
+        testimonial.classList.add("show");
+      }, index * 100); // stagger animation by 100ms
     });
     loadMoreBtn.style.display = "none";
   });
